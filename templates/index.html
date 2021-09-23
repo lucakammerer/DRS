@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home || Shop</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/import-style.css')}}">
+    <script src="{{url_for('static',filename='js/import-script.js')}}"></script>
+    <link rel="icon" href="{{url_for('static',filename='media/online_shop_logo.png')}}">
+  </head>
+  <body>
+    <div class="shop-header">
+      <div class="shop-header-bar">
+        <div class="shop-header-login-btn btn">
+          <div class="shop-header-login-btn-content">
+            <span>login</span>
+          </div>
+        </div>
+        <div class="shop-header-menu-btn" id="shop-header-menu-btn-h" onclick="openMenu(this);">
+          <span class="fas fa-bars"></span>
+        </div>
+        <div class="shop-header-links">
+          <div class="shop-header-link link link-left" onclick="window.location='/shop'">shop</div>
+          <div class="shop-header-link link link-left" onclick="window.location='/contact'">kontakt</div>
+          <div class="shop-header-link-label label"><img src="{{url_for('static',filename='media/online_shop_logo.png')}}"></div>
+          <div class="shop-header-link link link-right" onclick="window.location='/chat'">chat</div>
+          <div class="shop-header-link link link-right" onclick="window.location='/impsum'">impressum</div>
+        </div>
+      </div>
+    </div>
+    <div class="shop-menu" id="shop-menu">
+      <div class="shop-header-menu-btn" id="shop-header-menu-btn-m" onclick="closeMenu(this)">
+        <span class="fas fa-bars"></span>
+      </div>
+      <hr class="shop-menu-hr">
+      <div class="shop-menu-nav-links">
+        <div class="shop-menu-link link" onclick="window.location='/'">home</div>
+        <div class="shop-menu-link link" onclick="window.location='/shop'">shop</div>
+        <div class="shop-menu-link link" onclick="window.location='/chat'">chat</div>
+        <div class="shop-menu-link link" onclick="window.location='/bewertung'">bewertung</div>
+        <div class="shop-menu-link link" onclick="window.location='/impsum'">impressum</div>
+        <div class="shop-menu-link link" onclick="window.location='/contact'">contact</div>
+      </div>
+      <hr class="shop-menu-hr">
+      <div class="shop-menu-login-information">
+        <div class="shop-menu-login-information-txt-01 shop-menu-txt"><span>Eingeloggt als:</span></div>
+        <div class="shop-menu-login-information-username shop-menu-txt"><span>EinNutzer<span></div>
+        <div class="shop-menu-login-links">
+          <div class="shop-menu-login-link shop-menu-link link" onclick="window.location='/einstellungen'">Einstellungen</div>
+          <div class="shop-menu-login-link shop-menu-link link" onclick="window.location='/adminpannel'">Adminpannel</div>
+        </div>
+      </div>
+      <hr class="shop-menu-hr">
+    </div>
+    <div class="shop-main">
+      <div class="shop-main-label" id="shop-main-label">
+        <img src="{{url_for('static',filename='media/online_shop_logo_big.png')}}">
+      </div>
+      <div class="shop-main-txt-items">
+        <div class="shop-main-txt-items-top">
+          <div class="shop-main-txt-items-left txt-items" id="shop-main-txt-items-top-left">
+            <div class="shop-main-txt-items-left-heading txt-items heading link">
+              <span>shop</span>
+            </div>
+            <div class="shop-main-txt-items-left-txt txt link">
+              <span>Waren online bestellen</span>
+            </div>
+          </div>
+          <div class="shop-main-txt-items-right txt-items" id="shop-main-txt-items-top-right">
+            <div class="shop-main-txt-items-right-heading txt-items heading link">
+              <span>chat</span>
+            </div>
+            <div class="shop-main-txt-items-right-txt txt link">
+              <span>Beantworten deiner Fragen</span>
+            </div>
+          </div>
+        </div>
+        <div class="shop-main-txt-items-bottom">
+          <div class="shop-main-txt-items-left txt-items" id="shop-main-txt-items-bottom-left">
+            <div class="shop-main-txt-items-left-heading txt-items heading link">
+              <span>impressum</span>
+            </div>
+            <div class="shop-main-txt-items-left-txt txt link">
+              <span>Wichtige Informationen</span>
+            </div>
+          </div>
+          <div class="shop-main-txt-items-right txt-items" id="shop-main-txt-items-bottom-right">
+            <div class="shop-main-txt-items-right-heading txt-items heading link">
+              <span>chat</span>
+            </div>
+            <div class="shop-main-txt-items-right-txt txt link">
+              <span>Vorschläge und Feedback</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    function openMenu(open){
+      open.style='display:none';
+      document.getElementById('shop-menu').style='margin-right:0'
+      document.getElementById("shop-header-menu-btn-m").style='transform:rotate(810deg)';
+    }
+    function closeMenu(open){
+      open.style='display:inline-block'.style="transform:rotate(720deg)"
+      document.getElementById("shop-menu").style="margin-right:-800px"
+      document.getElementById("shop-header-menu-btn-h").style='display:inline-block'
+    }
+    function animation(){
+      var top_left = document.getElementById("shop-main-txt-items-top-left")
+      var top_right = document.getElementById("shop-main-txt-items-top-right")
+      var bottom_left = document.getElementById("shop-main-txt-items-bottom-left")
+      var bottom_right = document.getElementById("shop-main-txt-items-bottom-right")
+      var add_01 = -50;
+      var add_02 = -50;
+      var add_03 = -50;
+      var add_04 = -50;
+      var id = setInterval(function(){
+        if (add_01 >= 0){
+          clearInterval(id);
+        }
+        else{
+          add_01++
+          top_left.style.marginLeft = add_01 + "px";
+        }
+      },1)
+      var id = setInterval(function(){
+        if (add_02 >= 0){
+          clearInterval(id)
+        }
+        else{
+          add_02++
+          top_right.style.marginRight = add_02 + "px";
+        }
+      },3)
+      var id = setInterval(function(){
+        if (add_03 >= 0){
+          clearInterval(id);
+        }
+        else{
+          add_03++
+          bottom_left.style.marginLeft = add_03 + "px";
+        }
+      },2)
+      var id = setInterval(function(){
+        if (add_04 >= 0){
+          clearInterval(id);
+        }
+        else{
+          add_04++
+          bottom_right.style.marginRight = add_04 + "px";
+        }
+      },4)
+    }
+    window.onload=function(){
+      animation()
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home || Shop</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/import-style.css')}}">
+    <script src="{{url_for('static',filename='js/import-script.js')}}"></script>
+  </head>
+  <body>
+    <div class="shop-header">
+      <div class="shop-header-bar">
+        <div class="shop-header-login-btn btn">
+          <div class="shop-header-login-btn-content">
+            <span>login</span>
+          </div>
+        </div>
+        <div class="shop-header-menu-btn" id="shop-header-menu-btn-h" onclick="openMenu(this);">
+          <span class="fas fa-bars"></span>
+        </div>
+        <div class="shop-header-links">
+          <div class="shop-header-link link link-left" onclick="window.location='/shop'">shop</div>
+          <div class="shop-header-link link link-left" onclick="window.location='/contact'">kontakt</div>
+          <div class="shop-header-link-label label"><img src="https://placehold.it/75x75"></div>
+          <div class="shop-header-link link link-right" onclick="window.location='/chat'">chat</div>
+          <div class="shop-header-link link link-right" onclick="window.location='/impsum'">impressum</div>
+        </div>
+      </div>
+    </div>
+    <div class="shop-menu" id="shop-menu">
+      <div class="shop-header-menu-btn" id="shop-header-menu-btn-m" onclick="closeMenu(this)">
+        <span class="fas fa-bars"></span>
+      </div>
+      <hr class="shop-menu-hr">
+      <div class="shop-menu-nav-links">
+        <div class="shop-menu-link link" onclick="window.location='/'">home</div>
+        <div class="shop-menu-link link" onclick="window.location='/shop'">shop</div>
+        <div class="shop-menu-link link" onclick="window.location='/chat'">chat</div>
+        <div class="shop-menu-link link" onclick="window.location='/bewertung'">bewertung</div>
+        <div class="shop-menu-link link" onclick="window.location='/impsum'">impressum</div>
+        <div class="shop-menu-link link" onclick="window.location='/contact'">contact</div>
+      </div>
+      <hr class="shop-menu-hr">
+      <div class="shop-menu-login-information">
+        <div class="shop-menu-login-information-txt-01 shop-menu-txt"><span>Eingeloggt als:</span></div>
+        <div class="shop-menu-login-information-username shop-menu-txt"><span>EinNutzer<span></div>
+        <div class="shop-menu-login-links">
+          <div class="shop-menu-login-link shop-menu-link link" onclick="window.location='/einstellungen'">Einstellungen</div>
+          <div class="shop-menu-login-link shop-menu-link link" onclick="window.location='/adminpannel'">Adminpannel</div>
+        </div>
+      </div>
+      <hr class="shop-menu-hr">
+    </div>
+    <div class="shop-main">
+      <div class="shop-main-message-content">
+        <ul id="shop-main-messages">
+        {% for msg in messages %}
+          <li>{{msg}}</li>
+        {% endfor %}
+        </ul>
+        <div class="shop-main-user-message">
+          <input type="text" id="shop-main-user-message-input" value="">
+          <button type="button" id="shop-main-user-message-send">Send</button>
+        </div>
+      </div>
+    </div>
+    <script>
+    $(document).ready(function(){
+      var socket = io.connect("http://127.0.0.1:1338");
+      socket.on("message",function(msg){
+        $("#shop-main-messages").append("<li>"+msg+"</li>")
+        console.log("Received Message")
+      })
+      $("#shop-main-user-message-send").on("click",function(){
+        socket.send($("#shop-main-user-message-input").val());
+        $("#shop-main-user-message-input").val("")
+      })
+    });
+    </script>
+    <script>
+    function openMenu(open){
+      open.style='display:none';
+      document.getElementById('shop-menu').style='margin-right:0'
+      document.getElementById("shop-header-menu-btn-m").style='transform:rotate(810deg)';
+    }
+    function closeMenu(open){
+      open.style='display:inline-block'.style="transform:rotate(720deg)"
+      document.getElementById("shop-menu").style="margin-right:-800px"
+      document.getElementById("shop-header-menu-btn-h").style='display:inline-block'
+    }
+    </script>
+  </body>
+</html>

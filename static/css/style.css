@@ -1,0 +1,43 @@
+*{transition:.3s;box-sizing:border-box;font-family:'Roboto',sans-serif;}
+html{margin:0;padding:0;}
+body{width:100%;height:100%;position:fixed;}
+span{color:white;}
+button{transition:.0s}
+.link{margin:15px;font-size:2vh;color:white;text-transform:uppercase;cursor:pointer;}
+.link-left{float:left}
+.link-right{float:right}
+.btn{display:inline-block;margin:20px;padding:5px 15px;border:2px solid white;cursor:pointer}
+.btn:hover{background:#ff0043;}
+.btn span{text-transform:uppercase;}
+.label img{overflow:hidden;width:7.5vh}
+.heading{font-size:40px;}
+.shop-menu-txt{font-size:3vh;color:white;margin:0 40px;}
+.shop-header-bar{width:100%;height:120px;z-index:2;position:fixed;}
+.shop-header-login-btn{float:left}
+.shop-header-links{display:block;width:30%;margin:0 auto;padding:22px;height:100%;}
+.shop-header-link-label{position:absolute;left:50%;display:inline-block;transform:translate(-50%,0);}
+.shop-header-link{display:inline-block;}
+.shop-header-link:hover{border-bottom:1px solid;font-size:2.2vh}
+.shop-header-menu-btn{font-size:8vh;display:inline-block;margin:0 20px;cursor:pointer;z-index:4;}
+.shop-menu{width:30%;background:black;opacity:0.6;height:100%;z-index:5;position:fixed;right:0;top:0;margin-right:-800px;overflow-y:auto;}
+#shop-header-menu-btn-h{position:fixed;right:0;}
+.shop-main{width:100%;height:100%;background:#38383d;top:0;z-index:1}
+.shop-menu-hr{width:90%;margin:20px 5%;}
+.shop-menu-link{font-size:5vh;margin:0 40px}
+.shop-menu-link:hover{font-size:6vh;margin-left:80px;}
+.shop-menu-login-information-txt-01{font-size:2vh}
+.shop-main-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;}
+.shop-main-label img{width:75vh;}
+.shop-main-txt-items-top,.shop-main-txt-items-bottom{z-index:3;}
+.shop-main-txt-items-top{position:absolute;top:10%;left:25%;width:50%}
+.shop-main-txt-items-bottom{position:absolute;top:80%;left:25%;width:50%}
+.shop-main-txt-items-right{position:absolute;right:0;text-align:right;}
+.shop-main-txt-items-right span{text-align:right;}
+.shop-main-message-content{position:absolute;left:50%;top:200px;transform:translate(-50%);}
+.txt-items{display:inline-block}
+#shop-main-txt-items-top-left{margin-left:-600px}
+#shop-main-txt-items-top-right{margin-right:-600px}
+#shop-main-txt-items-bottom-left{margin-left:-600px}
+#shop-main-txt-items-bottom-right{margin-right:-600px}
+
+/**Color: #ff0043**/
